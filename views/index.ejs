@@ -6,10 +6,38 @@
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-<h1>URL Shortener</h1>
-<form>
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold text-body-emphasis">URL Shortener</h1>
+    <div class="col-lg-6 mx-auto">
 
-</form>
+        <div class="">
+            <h4 class="mb-3"></h4>
+            <form class="needs-validation" novalidate="" action="/" method="post">
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label for="link" class="form-label">Enter link</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text">🔗</span>
+                            <input type="url" class="form-control" name="link" placeholder="Link" required="">
+                            <div class="invalid-feedback">
+                                Please enter link.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="endpoint" class="form-label">Endpoint <span class="text-body-secondary">(Optional)</span></label>
+                        <input type="url" class="form-control" name="endpoint" placeholder="rickRoll">
+                    </div>
+
+
+                    <hr class="my-4">
+
+                    <button class="w-100 btn btn-primary btn-lg" type="submit">Shorten URL</button>
+            </form>
+        </div>
+    </div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
