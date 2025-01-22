@@ -1,9 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-let urls = new Map([
-    ["rickRoll", "https://www.youtube.com/watch?v=dQw4w9WgXcQ"]
-]);
+let urls = new Map([["rickRoll", "https://www.youtube.com/watch?v=dQw4w9WgXcQ"]]);
+
+function createRandomString(length) {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let result = "";
+    for (let i = 0; i < length; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+}
+
 
 /* GET home page. */
 router.get('/', (req, res) => {
@@ -12,12 +20,15 @@ router.get('/', (req, res) => {
 
 router.post("/", (req, res) => {
     const link = req.body.link;
-    const endpoint = req.body.endpoint;
+    let endpoint = req.body.endpoint;
     if (!link) {
         res.render("index.ejs");
     } else {
+        if (!endpoint) {
+            endpoint = createRandomString(8);
+        }
         urls.set(endpoint, link);
-        res.render("index.ejs", {newLink: "localhost:3000/" + endpoint});
+        res.render("index.ejs", {newLink: "http://localhost:3000/" + endpoint});
     }
 })
 
